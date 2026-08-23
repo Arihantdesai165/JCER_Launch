@@ -116,9 +116,7 @@ export class LaunchAudio {
   }
 
   activation() {
-    this.tone(120, 0.9, "sawtooth", 0.28, 900);
-    this.tone(440, 0.5, "triangle", 0.18, 1760);
-    this.noise(1.2, 0.25, 1800);
+    // sound removed as requested
   }
 
   confirm(i: number) {

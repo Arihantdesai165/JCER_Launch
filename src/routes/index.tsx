@@ -69,7 +69,6 @@ function LaunchPage() {
     const a = audio.current!;
     await a.start();
     a.ambient();
-    a.activation();
 
     setFlash(true);
     after(450, () => setFlash(false));
