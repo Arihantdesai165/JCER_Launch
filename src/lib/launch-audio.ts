@@ -137,9 +137,7 @@ export class LaunchAudio {
   }
 
   ignition() {
-    this.noise(3.5, 0.75, 420, 0.6);
-    this.tone(46, 3.2, "sawtooth", 0.4, 28);
-    this.tone(92, 2.2, "square", 0.14, 40);
+    // sound removed as requested
   }
 
   rocket() {

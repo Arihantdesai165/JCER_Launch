@@ -165,14 +165,14 @@ function LaunchPage() {
       <CinematicCanvas phase={phase} shake={shake} />
 
       {/* HUD frame */}
-      <div className="pointer-events-none absolute inset-3 sm:inset-5 md:inset-8 z-30 border border-[color-mix(in_oklab,var(--hud)_18%,transparent)]">
-        <span className="absolute -left-px -top-px h-6 w-6 sm:h-10 sm:w-10 border-l-2 border-t-2 border-[color:var(--hud)]" />
-        <span className="absolute -right-px -top-px h-6 w-6 sm:h-10 sm:w-10 border-r-2 border-t-2 border-[color:var(--hud)]" />
-        <span className="absolute -bottom-px -left-px h-6 w-6 sm:h-10 sm:w-10 border-b-2 border-l-2 border-[color:var(--hud)]" />
-        <span className="absolute -bottom-px -right-px h-6 w-6 sm:h-10 sm:w-10 border-b-2 border-r-2 border-[color:var(--hud)]" />
+      <div className="pointer-events-none absolute inset-2.5 sm:inset-4 md:inset-6 z-30 border border-[color-mix(in_oklab,var(--hud)_18%,transparent)]">
+        <span className="absolute -left-px -top-px h-5 w-5 sm:h-8 sm:w-8 border-l-2 border-t-2 border-[color:var(--hud)]" />
+        <span className="absolute -right-px -top-px h-5 w-5 sm:h-8 sm:w-8 border-r-2 border-t-2 border-[color:var(--hud)]" />
+        <span className="absolute -bottom-px -left-px h-5 w-5 sm:h-8 sm:w-8 border-b-2 border-l-2 border-[color:var(--hud)]" />
+        <span className="absolute -bottom-px -right-px h-5 w-5 sm:h-8 sm:w-8 border-b-2 border-r-2 border-[color:var(--hud)]" />
       </div>
 
-      <div className="relative z-20 flex h-full w-full max-w-4xl flex-col items-center justify-center px-4 sm:px-8 md:px-12 py-6 sm:py-10 text-center">
+      <div className="relative z-20 flex h-full w-full max-w-4xl max-h-[100dvh] flex-col items-center justify-center px-4 sm:px-8 py-3 sm:py-6 text-center overflow-hidden">
         {phase === "ready" && <ReadyScreen onLaunch={launch} />}
         {phase === "activation" && <ActivationScreen />}
         {phase === "countdown" && <CountdownScreen n={count} />}
@@ -190,13 +190,13 @@ function LaunchPage() {
         <div className="pointer-events-none absolute inset-0 z-40 animate-sweep bg-[linear-gradient(100deg,transparent_0%,rgba(180,230,255,0.9)_45%,#ffffff_50%,rgba(180,230,255,0.9)_55%,transparent_100%)]" />
       )}
 
-      {/* Standee Fullscreen Utility Button (Bottom-Right) */}
+      {/* Standee Fullscreen Utility Button (Top-Right) */}
       <button
         type="button"
         onClick={toggleFullscreen}
         aria-label={isFullscreen ? "Exit Fullscreen" : "Enter Fullscreen"}
         title={isFullscreen ? "Exit Fullscreen" : "Enter Fullscreen"}
-        className="absolute bottom-5 right-5 sm:bottom-7 sm:right-7 md:bottom-9 md:right-9 z-50 flex items-center justify-center rounded-lg border border-[color-mix(in_oklab,var(--hud)_45%,transparent)] bg-[color-mix(in_oklab,var(--void)_85%,transparent)] p-2.5 sm:p-3 text-[color:var(--hud)] shadow-[0_0_20px_color-mix(in_oklab,var(--hud)_25%,transparent)] backdrop-blur-md transition-all duration-200 hover:scale-110 hover:border-[color:var(--hud)] hover:bg-[color-mix(in_oklab,var(--hud)_20%,transparent)] hover:shadow-[0_0_30px_color-mix(in_oklab,var(--hud)_50%,transparent)] active:scale-95 cursor-pointer outline-none"
+        className="absolute top-5 right-5 sm:top-7 sm:right-7 md:top-8 md:right-8 z-50 flex items-center justify-center rounded-lg border border-[color-mix(in_oklab,var(--hud)_25%,transparent)] bg-[color-mix(in_oklab,var(--void)_60%,transparent)] p-1.5 sm:p-2 text-[color-mix(in_oklab,var(--hud)_60%,transparent)] opacity-35 backdrop-blur-sm transition-all duration-300 hover:opacity-100 hover:scale-105 hover:border-[color:var(--hud)] hover:text-[color:var(--hud)] hover:bg-[color-mix(in_oklab,var(--hud)_20%,transparent)] hover:shadow-[0_0_25px_color-mix(in_oklab,var(--hud)_40%,transparent)] focus:opacity-100 active:scale-95 cursor-pointer outline-none"
       >
         {isFullscreen ? (
           <svg
@@ -206,7 +206,7 @@ function LaunchPage() {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="h-5 w-5 sm:h-5.5 sm:w-5.5"
+            className="h-4.5 w-4.5 sm:h-5 sm:w-5"
             aria-hidden
           >
             <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3" />
@@ -219,7 +219,7 @@ function LaunchPage() {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="h-5 w-5 sm:h-5.5 sm:w-5.5"
+            className="h-4.5 w-4.5 sm:h-5 sm:w-5"
             aria-hidden
           >
             <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
@@ -234,23 +234,23 @@ function LaunchPage() {
 
 function ReadyScreen({ onLaunch }: { onLaunch: () => void }) {
   return (
-    <div className="flex w-full flex-col items-center justify-center animate-fade-up text-center">
-      <h1 className="font-display text-[clamp(2.4rem,7.5vw,5.5rem)] font-black leading-[1.08] tracking-[0.06em] text-glow max-w-3xl">
+    <div className="flex w-full flex-col items-center justify-center animate-fade-up text-center max-h-full">
+      <h1 className="font-display text-[clamp(1.7rem,5.4vmin,4.5rem)] font-black leading-[1.08] tracking-[0.06em] text-glow max-w-3xl">
         JCER ERP SYSTEM
       </h1>
-      <p className="mt-4 sm:mt-6 font-mono text-[clamp(0.85rem,2.4vw,1.5rem)] tracking-[0.45em] text-[color:var(--hud)] max-w-2xl leading-relaxed">
+      <p className="mt-2 sm:mt-3 md:mt-4 font-mono text-[clamp(0.65rem,1.85vmin,1.2rem)] tracking-[0.32em] text-[color:var(--hud)] max-w-2xl leading-relaxed">
         DIGITAL CAMPUS MANAGEMENT PLATFORM
       </p>
-      <p className="mt-3 sm:mt-4 font-display text-[clamp(0.9rem,2.2vw,1.4rem)] font-bold tracking-[0.48em] text-glow-gold">
+      <p className="mt-1.5 sm:mt-2.5 font-display text-[clamp(0.7rem,1.75vmin,1.1rem)] font-bold tracking-[0.38em] text-glow-gold">
         VERSION 1.0
       </p>
-      <div className="mt-5 sm:mt-7">
-        <p className="inline-flex items-center gap-2.5 sm:gap-3 rounded-full border border-[color-mix(in_oklab,var(--online)_40%,transparent)] bg-[color-mix(in_oklab,var(--void)_70%,transparent)] px-5 sm:px-7 py-2 sm:py-2.5 font-mono text-[clamp(0.75rem,1.8vw,1.1rem)] tracking-[0.35em] text-[color:var(--online)] shadow-[0_0_24px_color-mix(in_oklab,var(--online)_20%,transparent)]">
-          <span className="h-2 w-2 sm:h-2.5 sm:w-2.5 animate-core-pulse rounded-full bg-[color:var(--online)]" />
+      <div className="mt-2.5 sm:mt-4">
+        <p className="inline-flex items-center gap-2 sm:gap-2.5 rounded-full border border-[color-mix(in_oklab,var(--online)_40%,transparent)] bg-[color-mix(in_oklab,var(--void)_70%,transparent)] px-3.5 sm:px-5 py-1 sm:py-1.5 font-mono text-[clamp(0.6rem,1.4vmin,0.9rem)] tracking-[0.22em] text-[color:var(--online)] shadow-[0_0_20px_color-mix(in_oklab,var(--online)_20%,transparent)]">
+          <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 animate-core-pulse rounded-full bg-[color:var(--online)]" />
           SYSTEM STATUS: READY
         </p>
       </div>
-      <div className="mt-[5vh] sm:mt-[7vh]">
+      <div className="mt-[clamp(1.75rem,5.5vh,5.5rem)]">
         <LaunchButton onLaunch={onLaunch} armed />
       </div>
     </div>
@@ -263,11 +263,11 @@ function ActivationScreen() {
       {[0, 1, 2, 3].map((i) => (
         <span
           key={i}
-          className="absolute h-44 w-44 sm:h-64 sm:w-64 rounded-full border-2 border-[color-mix(in_oklab,var(--ignite)_70%,transparent)] animate-shockwave"
+          className="absolute h-[clamp(8rem,28vmin,18rem)] w-[clamp(8rem,28vmin,18rem)] rounded-full border-2 border-[color-mix(in_oklab,var(--ignite)_70%,transparent)] animate-shockwave"
           style={{ animationDelay: `${i * 180}ms` }}
         />
       ))}
-      <p className="font-display text-[clamp(2rem,7vw,4.5rem)] font-black tracking-[0.3em] text-glow-warm text-center px-4">
+      <p className="font-display text-[clamp(1.6rem,5.5vmin,4.2rem)] font-black tracking-[0.25em] text-glow-warm text-center px-4">
         SYSTEM ACTIVATED
       </p>
     </div>
@@ -279,7 +279,7 @@ function CountdownScreen({ n }: { n: number }) {
   const dash = 2 * Math.PI * r;
   return (
     <div className="relative flex flex-col items-center justify-center text-center">
-      <div className="relative h-[min(68vw,36vh)] w-[min(68vw,36vh)]">
+      <div className="relative h-[clamp(10rem,32vmin,20rem)] w-[clamp(10rem,32vmin,20rem)]">
         <svg viewBox="0 0 100 100" className="absolute inset-0 -rotate-90">
           <circle cx="50" cy="50" r={r} fill="none" stroke="rgba(120,190,255,0.14)" strokeWidth="1.6" />
           <circle
@@ -298,11 +298,11 @@ function CountdownScreen({ n }: { n: number }) {
             }}
           />
         </svg>
-        <span className="absolute inset-0 flex items-center justify-center font-display text-[clamp(4.5rem,22vw,13rem)] font-black leading-none text-glow select-none">
+        <span className="absolute inset-0 flex items-center justify-center font-display text-[clamp(3.5rem,13vmin,8.5rem)] font-black leading-none text-glow select-none">
           {n}
         </span>
       </div>
-      <p className="mt-6 sm:mt-8 font-mono text-[clamp(0.9rem,2.6vw,1.6rem)] tracking-[0.45em] text-[color:var(--hud)]">
+      <p className="mt-4 sm:mt-6 font-mono text-[clamp(0.75rem,2.2vmin,1.35rem)] tracking-[0.38em] text-[color:var(--hud)]">
         T−{n} &nbsp; LAUNCH SEQUENCE ACTIVE
       </p>
     </div>
@@ -312,7 +312,7 @@ function CountdownScreen({ n }: { n: number }) {
 function IgnitionScreen() {
   return (
     <div className="flex flex-col items-center justify-center text-center">
-      <p className="animate-ignite font-display text-[clamp(3.5rem,15vw,9.5rem)] font-black tracking-[0.16em] text-glow-warm">
+      <p className="animate-ignite font-display text-[clamp(2.5rem,10vmin,7.5rem)] font-black tracking-[0.16em] text-glow-warm">
         IGNITION
       </p>
     </div>
@@ -322,7 +322,7 @@ function IgnitionScreen() {
 function TransformScreen() {
   return (
     <div className="flex flex-col items-center justify-center px-4 text-center">
-      <p className="animate-fade-up font-mono text-[clamp(0.95rem,2.8vw,1.8rem)] tracking-[0.42em] text-[color:var(--hud)] leading-relaxed max-w-2xl">
+      <p className="animate-fade-up font-mono text-[clamp(0.85rem,2.5vmin,1.5rem)] tracking-[0.35em] text-[color:var(--hud)] leading-relaxed max-w-2xl">
         TRANSFORMING ENERGY → DIGITAL CORE
       </p>
     </div>
@@ -332,16 +332,16 @@ function TransformScreen() {
 function RevealScreen() {
   return (
     <div className="flex animate-reveal flex-col items-center justify-center text-center px-4">
-      <h1 className="font-display text-[clamp(3.5rem,14vw,9rem)] font-black leading-none tracking-[0.06em] text-glow">
+      <h1 className="font-display text-[clamp(2.4rem,8.5vmin,6.8rem)] font-black leading-none tracking-[0.06em] text-glow">
         JCER ERP
       </h1>
-      <p className="mt-5 sm:mt-8 font-mono text-[clamp(1.1rem,4vw,2.5rem)] tracking-[0.4em] text-[color:var(--gold)] text-glow-gold">
+      <p className="mt-3 sm:mt-5 font-mono text-[clamp(0.9rem,2.8vmin,1.9rem)] tracking-[0.35em] text-[color:var(--gold)] text-glow-gold">
         OFFICIALLY LAUNCHED
       </p>
-      <p className="mt-6 sm:mt-9 font-display text-[clamp(1.2rem,3.8vw,2.2rem)] font-black tracking-[0.4em] text-glow-gold">
+      <p className="mt-2.5 sm:mt-4 font-display text-[clamp(0.95rem,2.6vmin,1.65rem)] font-black tracking-[0.35em] text-glow-gold">
         VERSION 1.0
       </p>
-      <p className="mt-3 sm:mt-4 font-display text-[clamp(1.4rem,4.4vw,2.6rem)] font-black tracking-[0.4em] text-[color-mix(in_oklab,var(--chrome)_85%,transparent)]">
+      <p className="mt-2 sm:mt-3 font-display text-[clamp(1rem,2.8vmin,1.8rem)] font-black tracking-[0.35em] text-[color-mix(in_oklab,var(--chrome)_85%,transparent)]">
         2026
       </p>
     </div>
@@ -351,16 +351,16 @@ function RevealScreen() {
 function FinaleScreen() {
   return (
     <div className="flex animate-reveal flex-col items-center justify-center text-center px-4">
-      <h1 className="font-display text-[clamp(3.2rem,13vw,8.5rem)] font-black leading-none tracking-[0.06em] text-glow">
+      <h1 className="font-display text-[clamp(2.2rem,7.8vmin,6rem)] font-black leading-none tracking-[0.06em] text-glow">
         JCER ERP
       </h1>
-      <p className="mt-5 sm:mt-7 font-mono text-[clamp(1rem,3.5vw,2.2rem)] tracking-[0.4em] text-glow-gold">
+      <p className="mt-3 sm:mt-5 font-mono text-[clamp(0.85rem,2.5vmin,1.6rem)] tracking-[0.35em] text-glow-gold">
         OFFICIALLY LAUNCHED
       </p>
-      <p className="mt-4 sm:mt-6 font-display text-[clamp(0.9rem,2.8vw,1.8rem)] font-bold tracking-[0.5em] text-[color:var(--hud)]">
+      <p className="mt-2.5 sm:mt-3.5 font-display text-[clamp(0.75rem,2vmin,1.3rem)] font-bold tracking-[0.38em] text-[color:var(--hud)]">
         VERSION 1.0 &nbsp;·&nbsp; 2026
       </p>
-      <p className="mt-10 sm:mt-16 font-mono text-[clamp(0.8rem,2.2vw,1.4rem)] tracking-[0.45em] text-[color-mix(in_oklab,var(--hud)_75%,transparent)] animate-pulse">
+      <p className="mt-5 sm:mt-8 font-mono text-[clamp(0.7rem,1.8vmin,1.1rem)] tracking-[0.38em] text-[color-mix(in_oklab,var(--hud)_75%,transparent)] animate-pulse">
         ENTERING SYSTEM…
       </p>
     </div>
@@ -370,22 +370,22 @@ function FinaleScreen() {
 function FallbackScreen() {
   return (
     <div className="flex animate-fade-up flex-col items-center justify-center text-center px-4">
-      <h1 className="font-display text-[clamp(3rem,12vw,8rem)] font-black leading-none text-glow">
+      <h1 className="font-display text-[clamp(2rem,7vmin,5.5rem)] font-black leading-none text-glow">
         JCER ERP
       </h1>
-      <p className="mt-5 font-mono text-[clamp(1rem,3.2vw,2rem)] tracking-[0.4em] text-glow-gold">
+      <p className="mt-3 sm:mt-4 font-mono text-[clamp(0.8rem,2.4vmin,1.5rem)] tracking-[0.32em] text-glow-gold">
         OFFICIALLY LAUNCHED
       </p>
-      <p className="mt-4 font-display text-[clamp(0.9rem,2.6vw,1.6rem)] font-bold tracking-[0.5em] text-[color:var(--hud)]">
+      <p className="mt-2 sm:mt-3 font-display text-[clamp(0.7rem,1.8vmin,1.2rem)] font-bold tracking-[0.35em] text-[color:var(--hud)]">
         VERSION 1.0
       </p>
       <a
         href={ERP_URL}
-        className="mt-10 sm:mt-14 inline-block rounded-full border-2 border-[color:var(--hud)] px-8 sm:px-14 py-4 sm:py-6 font-display text-[clamp(0.95rem,2.6vw,1.6rem)] tracking-[0.3em] text-[color:var(--chrome)] shadow-[0_0_50px_color-mix(in_oklab,var(--hud)_45%,transparent)] transition-all hover:scale-105 active:scale-95 hover:bg-[color-mix(in_oklab,var(--hud)_18%,transparent)]"
+        className="mt-5 sm:mt-8 inline-block rounded-full border-2 border-[color:var(--hud)] px-5 sm:px-8 py-2.5 sm:py-3.5 font-display text-[clamp(0.8rem,2vmin,1.2rem)] tracking-[0.25em] text-[color:var(--chrome)] shadow-[0_0_35px_color-mix(in_oklab,var(--hud)_45%,transparent)] transition-all hover:scale-105 active:scale-95 hover:bg-[color-mix(in_oklab,var(--hud)_18%,transparent)]"
       >
         CLICK TO ENTER ERP
       </a>
-      <p className="mt-6 font-mono text-[clamp(0.7rem,1.8vw,1rem)] tracking-[0.2em] text-[color-mix(in_oklab,var(--hud)_60%,transparent)] break-all max-w-sm sm:max-w-md">
+      <p className="mt-3.5 font-mono text-[clamp(0.6rem,1.5vmin,0.85rem)] tracking-[0.16em] text-[color-mix(in_oklab,var(--hud)_60%,transparent)] break-all max-w-sm sm:max-w-md">
         {ERP_URL}
       </p>
     </div>
